@@ -32,6 +32,7 @@
             background: rgba(255, 255, 255, 0.1);
             padding: 20px;
             border-radius: 15px;
+            -webkit-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
@@ -42,6 +43,12 @@
             margin-bottom: 15px;
             text-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
             animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        .cheat-c {
+            cursor: pointer;
+            -webkit-user-select: none;
+            user-select: none;
         }
 
         @keyframes glow {
@@ -175,6 +182,165 @@
             border-color: #ffd700;
         }
 
+        .custom-bet {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .custom-bet input[type="number"] {
+            padding: 10px 15px;
+            border-radius: 25px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            background: rgba(0, 0, 0, 0.3);
+            color: #fff;
+            font-family: 'Orbitron', monospace;
+            font-weight: 700;
+            width: 160px;
+            text-align: center;
+            outline: none;
+        }
+
+        /* Cheat overlay */
+        .cheat-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+        }
+
+        .cheat-modal {
+            width: 460px;
+            max-width: 92vw;
+            background: linear-gradient(135deg, #111827, #0b1220);
+            border: 2px solid rgba(99, 102, 241, 0.6);
+            border-radius: 18px;
+            padding: 18px 18px 14px;
+            color: #e5e7eb;
+            font-family: 'Rubik', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55), 0 0 25px rgba(99, 102, 241, 0.25);
+        }
+
+        .cheat-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+
+        .cheat-logo { font-size: 1.4rem; }
+
+        .cheat-title-text {
+            font-weight: 900;
+            letter-spacing: 0.5px;
+            color: #a5b4fc;
+            font-family: 'Russo One', 'Rubik', system-ui, sans-serif;
+            text-shadow: 0 0 12px rgba(99, 102, 241, 0.45);
+        }
+
+        .cheat-divider {
+            height: 1px;
+            border: none;
+            background: linear-gradient(90deg, rgba(99,102,241,0), rgba(99,102,241,0.7), rgba(99,102,241,0));
+            margin: 8px 0 14px;
+        }
+
+        .cheat-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 12px 0;
+        }
+
+        .cheat-row--tight {
+            margin: 0;
+        }
+
+        .cheat-label {
+            width: 150px;
+            font-weight: 800;
+            color: #a5b4fc;
+        }
+
+        .cheat-range { flex: 1; }
+
+        .cheat-input {
+            flex: 1;
+            padding: 10px 12px;
+            border-radius: 10px;
+            border: 2px solid rgba(99, 102, 241, 0.35);
+            background: rgba(30, 41, 59, 0.6);
+            color: #e5e7eb;
+            font-family: 'Rubik', system-ui, sans-serif;
+            font-weight: 700;
+            outline: none;
+        }
+
+        .cheat-actions {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+            margin-top: 10px;
+        }
+
+        .cheat-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px 12px;
+            align-items: center;
+        }
+
+        .cheat-btn {
+            padding: 10px 16px;
+            background: linear-gradient(45deg, #6366f1, #8b5cf6);
+            border: none;
+            border-radius: 10px;
+            color: #0b1220;
+            font-family: 'Orbitron', monospace;
+            font-weight: 900;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: 2px solid rgba(165, 180, 252, 0.35);
+        }
+
+        .cheat-btn:hover {
+            filter: brightness(1.05);
+            transform: translateY(-1px);
+            box-shadow: 0 0 12px rgba(165, 180, 252, 0.35);
+        }
+
+        /* Cheat toggle button */
+        .cheat-toggle-btn {
+            padding: 10px 18px;
+            background: linear-gradient(45deg, #6366f1, #8b5cf6);
+            border: 2px solid rgba(165, 180, 252, 0.6);
+            border-radius: 25px;
+            color: #0b1220;
+            font-family: 'Orbitron', monospace;
+            font-weight: 900;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .cheat-toggle-btn:hover {
+            filter: brightness(1.05);
+            transform: translateY(-1px);
+        }
+
+        .is-hidden { display: none !important; }
+
+        .cheat-error {
+            margin-top: 8px;
+            color: #ff6b6b;
+            font-weight: 700;
+            text-align: right;
+        }
+
         .current-bet {
             font-size: 1.3rem;
             font-weight: 700;
@@ -254,6 +420,7 @@
             background: rgba(255, 255, 255, 0.1);
             padding: 25px;
             border-radius: 15px;
+            -webkit-backdrop-filter: blur(10px);
             margin-bottom: 30px;
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.2);
@@ -299,6 +466,7 @@
             background: rgba(255, 255, 255, 0.1);
             padding: 25px;
             border-radius: 15px;
+            -webkit-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
@@ -360,6 +528,7 @@
              padding: 25px;
              border-radius: 15px;
              margin-bottom: 30px;
+             -webkit-backdrop-filter: blur(10px);
              backdrop-filter: blur(10px);
              border: 1px solid rgba(255, 255, 255, 0.2);
          }
@@ -496,11 +665,13 @@
          }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>🎰 CASINO SLOT SIMULATOR 🎰</h1>
+            <h1>🎰 <span id="cheat-title-c" class="cheat-c" title="Открыть чит">C</span>ASINO SLOT SIMULATOR 🎰</h1>
             <div class="balance-container">
                 <span class="balance-label">Balance:</span>
                 <span class="balance" id="balance">2000</span>
@@ -545,9 +716,20 @@
                             <button class="bet-btn" data-bet="25">25</button>
                             <button class="bet-btn" data-bet="50">50</button>
                             <button class="bet-btn" data-bet="100">100</button>
+                            <button class="bet-btn" data-bet="250">250</button>
+                            <button class="bet-btn" data-bet="500">500</button>
+                            <button class="bet-btn" data-bet="1000">1000</button>
+                            <button class="bet-btn" data-bet="2500">2500</button>
+                            <button class="bet-btn" data-bet="5000">5000</button>
+                        </div>
+                        <div class="custom-bet">
+                            <input type="number" id="custom-bet-input" min="1" step="1" placeholder="Enter bet" />
+                            <button class="bet-btn" id="set-custom-bet">Set</button>
                         </div>
                         <span class="current-bet" id="current-bet">10</span>
                     </div>
+
+                    <button id="cheat-toggle-btn" class="cheat-toggle-btn is-hidden">ЧитБобка227</button>
 
                     <button class="spin-btn" id="spin-btn">
                         <span class="spin-text">SPIN</span>
@@ -621,12 +803,90 @@
         </div>
     </div>
 
+    <!-- Cheat Overlay -->
+    <div id="cheat-overlay" class="cheat-overlay" aria-hidden="true">
+        <div class="cheat-modal" role="dialog" aria-modal="true" aria-labelledby="cheat-title">
+            <div class="cheat-header">
+                <span class="cheat-logo">🧪</span>
+                <h3 id="cheat-title" class="cheat-title-text">ЧитБобка227</h3>
+            </div>
+            <hr class="cheat-divider" />
+            <div id="cheat-login" class="cheat-login">
+                <div class="cheat-row">
+                    <span class="cheat-label">Пароль</span>
+                    <input id="cheat-password-input" class="cheat-input" type="password" placeholder="Введите пароль">
+                </div>
+                <div class="cheat-actions">
+                    <button id="cheat-login-btn" class="cheat-btn">Войти</button>
+                    <button id="cheat-cancel-btn" class="cheat-btn">Отмена</button>
+                </div>
+                <div id="cheat-login-error" class="cheat-error is-hidden">Неверный пароль</div>
+            </div>
+            <div id="cheat-content" class="cheat-content is-hidden">
+                <div class="cheat-grid">
+                    <span class="cheat-label">Шанс победы</span>
+                    <div class="cheat-row cheat-row--tight">
+                        <input id="cheat-chance-range" class="cheat-range" type="range" min="0" max="100" step="1">
+                        <input id="cheat-chance-input" class="cheat-input" type="number" min="0" max="100" step="1" placeholder="%">
+                    </div>
+
+                    <span class="cheat-label">Баланс</span>
+                    <input id="cheat-balance-input" class="cheat-input" type="number" min="0" step="1" placeholder="Сумма">
+
+                    <span class="cheat-label">Авто-спин</span>
+                    <div class="cheat-row cheat-row--tight">
+                        <select id="cheat-autospin-select" class="cheat-select">
+                            <option value="off">Выкл</option>
+                            <option value="slow">Медленно</option>
+                            <option value="normal" selected>Нормально</option>
+                            <option value="fast">Быстро</option>
+                        </select>
+                        <input id="cheat-autospin-count" class="cheat-input" type="number" min="1" step="1" placeholder="Кол-во (по желанию)">
+                    </div>
+
+                    <span class="cheat-label">Скорость спина</span>
+                    <select id="cheat-speed-select" class="cheat-select">
+                        <option value="800">Обычная</option>
+                        <option value="500">Быстрее</option>
+                        <option value="300">Очень быстро</option>
+                    </select>
+
+                    <span class="cheat-label">Фикс. символ</span>
+                    <select id="cheat-force-symbol" class="cheat-select">
+                        <option value="">Нет</option>
+                        <option value="🍒">🍒</option>
+                        <option value="🍊">🍊</option>
+                        <option value="🍇">🍇</option>
+                        <option value="⭐">⭐</option>
+                        <option value="7️⃣">7️⃣</option>
+                        <option value="🎰">🎰</option>
+                    </select>
+                </div>
+                <div class="cheat-actions">
+                    <button id="cheat-save" class="cheat-btn">Сохранить</button>
+                    <button id="cheat-close" class="cheat-btn">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Sound effects -->
     <audio id="start-sound" src="Start.mp3" preload="auto"></audio>
     <audio id="win-sound" src="Win.mp3" preload="auto"></audio>
     <audio id="lose-sound" src="Lose.mp3" preload="auto"></audio>
 
     <script>
+        // Early cheat stub to catch pre-load console calls
+        (function(){
+            if (typeof window.__cheatEnabled === 'undefined') window.__cheatEnabled = false;
+            if (typeof window.cheat === 'undefined') {
+                window.cheat = {
+                    activate: function(){ window.__cheatEnabled = true; console.info('Активировано'); },
+                    deactivate: function(){ window.__cheatEnabled = false; console.info('Деактивировано'); }
+                };
+            }
+        })();
+
         class SlotMachine {
             constructor() {
                 this.balance = 2000;
@@ -648,6 +908,10 @@
                     'lucky-streak': false
                 };
                 this.winStreak = 0;
+                this.cheatWinChance = 40; // percent
+                this.cheatAutoSpin = { mode: 'off', count: null };
+                this.cheatForcedSymbol = '';
+                this.cheatSpinDurationMs = 800;
                 
                 this.initializeElements();
                 this.bindEvents();
@@ -672,6 +936,8 @@
                 this.loseSound = document.getElementById('lose-sound');
                 
                 this.betButtons = document.querySelectorAll('.bet-btn');
+                this.customBetInput = document.getElementById('custom-bet-input');
+                this.customBetSetButton = document.getElementById('set-custom-bet');
             }
 
             bindEvents() {
@@ -679,15 +945,39 @@
                 
                 this.betButtons.forEach(button => {
                     button.addEventListener('click', (e) => {
-                        const bet = parseInt(e.target.dataset.bet);
-                        this.setBet(bet);
+                        const betAttr = e.currentTarget.getAttribute('data-bet');
+                        if (betAttr == null) return;
+                        const bet = parseInt(betAttr);
+                        if (!isNaN(bet)) this.setBet(bet);
                     });
                 });
+
+                if (this.customBetSetButton && this.customBetInput) {
+                    this.customBetSetButton.addEventListener('click', () => {
+                        const value = parseInt(this.customBetInput.value);
+                        if (!isNaN(value) && value > 0) {
+                            this.setBet(value);
+                        }
+                    });
+
+                    this.customBetInput.addEventListener('keydown', (e) => {
+                        if (e.key === 'Enter') {
+                            const value = parseInt(this.customBetInput.value);
+                            if (!isNaN(value) && value > 0) {
+                                this.setBet(value);
+                            }
+                        }
+                    });
+                }
             }
 
             setBet(bet) {
-                this.currentBet = bet;
+                const normalized = Math.max(1, Math.floor(bet));
+                this.currentBet = normalized;
                 this.updateBetDisplay();
+                if (this.customBetInput) {
+                    this.customBetInput.value = String(this.currentBet);
+                }
             }
 
             updateBetDisplay() {
@@ -736,17 +1026,27 @@
                 this.isSpinning = false;
                 this.spinButton.disabled = false;
                 this.spinButton.innerHTML = '<span class="spin-text">SPIN</span><div class="spin-arrow">↓</div>';
+
+                // Handle autospin if enabled
+                await this.handleAutoSpinIfNeeded();
             }
 
             generateResult() {
                 const result = [];
-                
-                const shouldWin = Math.random() < 0.4;
+                const active = !!window.__cheatEnabled;
+                const chance = active ? Math.max(0, Math.min(100, this.cheatWinChance)) / 100 : 0.4;
+                const shouldWin = Math.random() < chance;
                 
                 if (shouldWin) {
+                    const forced = active && this.cheatForcedSymbol ? this.cheatForcedSymbol : null;
                     const winningCombinations = Object.keys(this.payouts);
-                    const randomWinningCombo = winningCombinations[Math.floor(Math.random() * winningCombinations.length)];
-                    const winningSymbol = randomWinningCombo[0];
+                    let winningSymbol;
+                    if (forced && ['🍒','🍊','🍇','⭐','7️⃣','🎰'].includes(forced)) {
+                        winningSymbol = forced;
+                    } else {
+                        const randomWinningCombo = winningCombinations[Math.floor(Math.random() * winningCombinations.length)];
+                        winningSymbol = Array.from(randomWinningCombo)[0];
+                    }
                     
                     for (let i = 0; i < 3; i++) {
                         result.push(winningSymbol);
@@ -762,7 +1062,7 @@
             }
 
             async animateSpin(result) {
-                const spinDuration = 800;
+                const spinDuration = this.cheatSpinDurationMs || 800;
                 const spinSteps = 15;
                 const stepDuration = spinDuration / spinSteps;
 
@@ -777,6 +1077,22 @@
 
                 for (let i = 0; i < 3; i++) {
                     this.reels[i].querySelector('.symbol').textContent = result[i];
+                }
+            }
+
+            async handleAutoSpinIfNeeded() {
+                const active = !!window.__cheatEnabled;
+                const mode = this.cheatAutoSpin?.mode || 'off';
+                if (!active || mode === 'off') return;
+                if (typeof this.cheatAutoSpin.count === 'number') {
+                    if (this.cheatAutoSpin.count <= 1) { this.cheatAutoSpin.count = null; this.cheatAutoSpin.mode = 'off'; return; }
+                    this.cheatAutoSpin.count -= 1;
+                }
+                const delays = { slow: 900, normal: 400, fast: 150 };
+                const waitMs = delays[mode] ?? 400;
+                await this.delay(waitMs);
+                if (this.balance >= this.currentBet) {
+                    this.spin();
                 }
             }
 
@@ -930,6 +1246,152 @@
         document.addEventListener('DOMContentLoaded', () => {
             const slotMachine = new SlotMachine();
             slotMachine.setBet(10);
+
+            // Expose for cheats
+            window.slotMachine = slotMachine;
+            const overlay = document.getElementById('cheat-overlay');
+            const cheatToggleBtn = document.getElementById('cheat-toggle-btn');
+            const cheatTitleC = document.getElementById('cheat-title-c');
+            const loginBox = document.getElementById('cheat-login');
+            const contentBox = document.getElementById('cheat-content');
+            const passwordInput = document.getElementById('cheat-password-input');
+            const loginBtn = document.getElementById('cheat-login-btn');
+            const cancelBtn = document.getElementById('cheat-cancel-btn');
+            const loginError = document.getElementById('cheat-login-error');
+            const range = document.getElementById('cheat-chance-range');
+            const chanceInput = document.getElementById('cheat-chance-input');
+            const balanceInput = document.getElementById('cheat-balance-input');
+            const btnSave = document.getElementById('cheat-save');
+            const btnClose = document.getElementById('cheat-close');
+            const autospinSelect = document.getElementById('cheat-autospin-select');
+            const autospinCount = document.getElementById('cheat-autospin-count');
+            const speedSelect = document.getElementById('cheat-speed-select');
+            const forceSymbolSelect = document.getElementById('cheat-force-symbol');
+
+            const showCheat = () => {
+                if (!window.__cheatEnabled) return;
+                overlay.style.display = 'flex';
+                overlay.setAttribute('aria-hidden', 'false');
+                if (window.__cheatAuthed) {
+                    loginBox.classList.add('is-hidden');
+                    contentBox.classList.remove('is-hidden');
+                    range.value = String(slotMachine.cheatWinChance);
+                    chanceInput.value = String(slotMachine.cheatWinChance);
+                    balanceInput.value = String(slotMachine.balance);
+                } else {
+                    contentBox.classList.add('is-hidden');
+                    loginBox.classList.remove('is-hidden');
+                    loginError.classList.add('is-hidden');
+                    passwordInput.value = '';
+                    setTimeout(() => passwordInput.focus(), 0);
+                }
+            };
+
+            const notify = (text, icon = '🛠️') => {
+                const n = document.createElement('div');
+                n.className = 'achievement-notification';
+                n.innerHTML = `<span class="achievement-icon">${icon}</span><span class="achievement-text">${text}</span>`;
+                document.body.appendChild(n);
+                setTimeout(() => n.remove(), 2000);
+            };
+
+            const hideCheat = () => {
+                overlay.style.display = 'none';
+                overlay.setAttribute('aria-hidden', 'true');
+            };
+
+            range.addEventListener('input', () => {
+                chanceInput.value = range.value;
+                const v = parseInt(range.value || '0');
+                const clamped = Math.max(0, Math.min(100, isNaN(v) ? 0 : v));
+                window.slotMachine.cheatWinChance = clamped;
+            });
+            chanceInput.addEventListener('input', () => {
+                const v = parseInt(chanceInput.value || '0');
+                const clamped = Math.max(0, Math.min(100, isNaN(v) ? 0 : v));
+                chanceInput.value = String(clamped);
+                range.value = String(clamped);
+                window.slotMachine.cheatWinChance = clamped;
+            });
+            btnSave.addEventListener('click', () => {
+                const chanceVal = parseInt(chanceInput.value || '0');
+                const balVal = parseInt(balanceInput.value || '0');
+                slotMachine.cheatWinChance = Math.max(0, Math.min(100, isNaN(chanceVal) ? 0 : chanceVal));
+                if (!isNaN(balVal)) {
+                    slotMachine.balance = Math.max(0, Math.floor(balVal));
+                    slotMachine.updateDisplay();
+                }
+                // Apply extra cheat settings
+                slotMachine.cheatAutoSpin = {
+                    mode: autospinSelect.value,
+                    count: autospinCount.value ? Math.max(1, Math.floor(Number(autospinCount.value))) : null
+                };
+                slotMachine.cheatSpinDurationMs = Number(speedSelect.value) || 800;
+                slotMachine.cheatForcedSymbol = forceSymbolSelect.value || '';
+                hideCheat();
+            });
+            btnClose.addEventListener('click', hideCheat);
+            cancelBtn.addEventListener('click', hideCheat);
+            const tryLogin = () => {
+                if (passwordInput.value === 'bobka148') {
+                    window.__cheatAuthed = true;
+                    loginError.classList.add('is-hidden');
+                    showCheat();
+                } else {
+                    window.__cheatAuthed = false;
+                    loginError.classList.remove('is-hidden');
+                }
+            };
+            loginBtn.addEventListener('click', tryLogin);
+            passwordInput.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    tryLogin();
+                }
+            });
+            overlay.addEventListener('click', (e) => {
+                if (e.target === overlay) hideCheat();
+            });
+            cheatToggleBtn.addEventListener('click', () => {
+                if (!window.__cheatEnabled) return;
+                if (overlay.style.display === 'flex') hideCheat(); else showCheat();
+            });
+            if (cheatTitleC) {
+                cheatTitleC.addEventListener('click', () => {
+                    window.__cheatEnabled = true;
+                    cheatToggleBtn.classList.remove('is-hidden');
+                    showCheat();
+                });
+            }
+            document.addEventListener('keydown', (e) => {
+                if (e.code === 'Escape') hideCheat();
+                const isRightShift = e.code === 'ShiftRight' || (e.key === 'Shift' && e.location === 2);
+                if (isRightShift) {
+                    window.__cheatEnabled = true;
+                    cheatToggleBtn.classList.remove('is-hidden');
+                    if (overlay.style.display === 'flex') hideCheat(); else showCheat();
+                }
+            });
+
+            // Global cheat API
+            window.__cheatEnabled = false;
+            window.__cheatAuthed = false;
+            window.cheat = {
+                activate: () => { window.__cheatEnabled = true; cheatToggleBtn.classList.remove('is-hidden'); console.info('Активировано'); notify('Чит активирован', '🛠️'); },
+                deactivate: () => { window.__cheatEnabled = false; cheatToggleBtn.classList.add('is-hidden'); hideCheat(); console.info('Деактивировано'); notify('Чит деактивирован', '🛠️'); },
+                open: () => { window.__cheatEnabled = true; showCheat(); },
+                close: hideCheat,
+                setChance: (percent) => { const p = Math.max(0, Math.min(100, Number(percent))); slotMachine.cheatWinChance = isNaN(p) ? slotMachine.cheatWinChance : p; },
+                setBalance: (amount) => { const a = Math.max(0, Math.floor(Number(amount))); if (!isNaN(a)) { slotMachine.balance = a; slotMachine.updateDisplay(); } },
+                status: () => ({ active: !!window.__cheatEnabled, chance: slotMachine.cheatWinChance, balance: slotMachine.balance })
+            };
+
+            // Convenience: also support cheat_activate() function
+            window.cheat_activate = () => window.cheat.activate();
+
+            // If cheat was activated before load, show button now
+            if (window.__cheatEnabled) {
+                cheatToggleBtn.classList.remove('is-hidden');
+            }
         });
     </script>
 </body>
